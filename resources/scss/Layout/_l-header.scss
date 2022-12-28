@@ -1,0 +1,19 @@
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    height: 80px;
+    border-bottom: solid 1px;
+
+    &__title{
+        font-size: 32px;
+    }
+
+    &__nav{
+        display: flex;
+        gap: 10%;
+        margin: 0 10px;
+    }
+}
