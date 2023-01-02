@@ -17,12 +17,10 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->integer('place_id');
             $table->string('name', 255)->nullable();
-            $table->string('type', 64)->nullable();
-            $table->integer('size');
+            // $table->string('type', 64)->nullable();
+            // $table->integer('size');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
-
-        DB::statement("ALTER TABLE images ADD content MEDIUMBLOB");
     }
 
     /**

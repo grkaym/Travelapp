@@ -3,7 +3,7 @@
     <ul class="header__nav">
         <li><a href="/">MYPAGE</a></li>
         <li><a href="/timeline">TIMELINE</a></li>
-        <li><a href="/post">POST</a></li>
+        <li><a href="/create">POST</a></li>
         <li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf

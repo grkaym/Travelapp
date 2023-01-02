@@ -41,4 +41,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // hasMany設定
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public static function deleteUser($id)
+    {
+        $record = User::find($id);
+        $record->role = '2';
+
+        $record->save();
+    }
+
+    public static function restoreUser($id)
+    {
+        $record = User::find($id);
+        $record->role = '1';
+        
+        $record->save();
+    }
 }
