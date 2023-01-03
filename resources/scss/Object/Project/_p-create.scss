@@ -1,0 +1,15 @@
+.create{
+    &__table{
+        td:first-child{
+            background-color: #cfecff;
+            width: 100px;
+            vertical-align: top;
+            padding-left: 5px;
+        }
+        tr:last-child{
+            td:first-child{
+                background-color: #fff;
+            }
+        }
+    }
+}

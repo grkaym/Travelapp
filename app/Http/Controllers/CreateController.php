@@ -42,18 +42,20 @@ class CreateController extends Controller
         $post_user = $post->user->name; //投稿者名
         $tags = Tag::where('post_id', $postId)->get();  //タグ
         $places = Place::where('post_id', $postId)->get();  //スポット
+        $images = Image::all(); //画像ぜんぶ
 
         return view('edit', [
             'post' => $post,
             'tags' => $tags,
             'post_user' => $post_user,
             'places' => $places,
+            'images' => $images,
         ]);
     }
 
     public function spot(Request $request)
     {
-        $place_id = $request->id;
+        $place_id = $request->id;   //これPOSTIDやん
         $images = Image::where('place_id', $place_id)->get();
         return view('spot', [
             'images' => $images,
@@ -73,6 +75,7 @@ class CreateController extends Controller
     public function addImage(Request $request)
     {
         $place_id = $request->place_id;
+        $post_id = $request->post_id;
         $image = new Image;
 
         // 画像をアップロード
@@ -81,6 +84,6 @@ class CreateController extends Controller
         $image->place_id = $place_id;
         $image->save();
         //spotにリダイレクト
-        return redirect()->action([CreateController::class, 'spot'], ['id' => $place_id]);
+        return redirect()->action([CreateController::class, 'edit'], ['id' => $post_id]);
     }
 }

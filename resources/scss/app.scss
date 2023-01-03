@@ -10,6 +10,8 @@
 
 // Object
 // component
-
+@use "Object/Components/c-post";
+@use "Object/Components/c-place";
 
 // project
+@use "Object/Project/p-create";

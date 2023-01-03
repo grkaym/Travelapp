@@ -1,0 +1,26 @@
+.place{
+    background-color: #fff;
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 0px #ccc;
+    &__images{
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 500px;
+        }
+    }
+    &__name{
+
+    }
+    &__address{
+
+    }
+    &__description{
+
+    }
+
+}

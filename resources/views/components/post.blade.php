@@ -1,12 +1,12 @@
 {{-- マイページ、タイムラインに出てくるときの投稿 --}}
-<div class="post js-post">
+<div class="post">
     <div class="post__header">
-        <h2>{{$post_title}}</h2>
-        <p>投稿者：{{$post_user}}</p>
+        <h2 class="post__title">{{$post_title}}</h2>
+        <p class="post__user">投稿者：{{$post_user}}</p>
     </div>
-    <p>{{$post_desc}}</p>
-    <div class="tags">
+    <p class="post__desc">{{$post_desc}}</p>
+    <div class="post__tags">
         {{$post_tag}}
     </div>
-    <p><a href="/edit/{{$post_id}}">編集</a></p>
+    {{$post_edit}}
 </div>

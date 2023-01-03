@@ -17,22 +17,6 @@
             <td>description</td>
             <td><input type="text" name="description" form="new"></td>
         </tr>
-            <tr>
-                <td>image</td>
-                <td>
-                    <form method="post" action="/edit/spot/add_image" enctype="multipart/form-data">
-                        @csrf
-                        <div class="spot__image">
-                            <input type="hidden" name="place_id" value="{{$place_id}}">
-                            <input type="file" name="image" value="{{old('image')}}">
-                            <input type="submit" value="add image">
-                        </div>
-                    </form>
-                    @foreach ($images as $image)
-                        <img src="{{asset('storage/image/'.$image->name)}}" class="spot__image">
-                    @endforeach
-                </td>
-            </tr>
         </table>
         <form action="/edit/spot/add" id="new" method="post">
             @csrf
