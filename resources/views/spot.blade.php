@@ -1,7 +1,7 @@
 @extends('layouts.l-app')
 @section('title', 'add-spot')
 @section('main')
-<p>this page is spot page.</p>
+<h2>Add New Place</h2>
 <form action="/edit/spot/add" id="new" method="post" class="forms">
     @csrf
     <table class="forms__table">
@@ -31,6 +31,6 @@
             </td>
         </tr>
     </table>
-    <input type="submit" value="create new spot">
+    <input type="submit" value="スポットを追加する" class="button">
 </form>
 @endsection

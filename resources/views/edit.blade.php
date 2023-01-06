@@ -44,8 +44,6 @@
         <button class="day__button day__button--add">+</button>
     </div>
 
-    <a href="/edit/spot/{{$post->id}}">スポットを追加</a>
-
     @foreach ($places as $place)
         @component('components.place')
             @slot('place_day', $place->day)
@@ -88,6 +86,9 @@
             @endslot
         @endcomponent
     @endforeach
+    <div class="add-button">
+        <a href="/edit/spot/{{$post->id}}" class="button button--add-spot">スポットを追加</a>
+    </div>
 @endsection
 @section('js')
 <script src="{{asset('/assets/js/slick.js')}}"></script>
