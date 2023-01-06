@@ -19,6 +19,7 @@ mix.js('resources/js/app.js', 'public/assets/auth/js')
 mix.sass('resources/scss/app.scss', 'public/assets/css')
     .js('resources/js/scroll.js', 'public/assets/js')
     .js('resources/js/slick.js', 'public/assets/js')
+    .js('resources/js/main.js', 'public/assets/js')
     .autoload({
         'jquery':['$', 'window.jQuery'],
     });

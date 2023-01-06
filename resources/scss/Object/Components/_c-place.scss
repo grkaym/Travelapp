@@ -1,3 +1,5 @@
+@use "../../Foundation/variables" as var;
+
 .place{
     background-color: #fff;
     width: 100%;
@@ -14,13 +16,22 @@
         }
     }
     &__name{
-
+        font-size: 24px;
     }
     &__address{
-
+        color: #888;
+        margin: 10px 0;
     }
     &__description{
-
+        font-size: 14px;
+        margin: 10px 0;
     }
 
+}
+
+.slick-dots li.slick-active button:before{
+    color: var.$theme-color;
+}
+.slick-dots li button:before{
+    color: var.$theme-color;
 }

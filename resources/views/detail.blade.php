@@ -1,31 +1,44 @@
 @extends('layouts.l-app')
 @section('title', 'detail')
 @section('main')
-    <p>this page is detail page. post ID = {{$post->id}}</p>
-    @component('components.post')
-        @slot('post_id')
-            {{$post->id}}
-        @endslot
-        @slot('post_title')
-            {{$post->name}}
-        @endslot
-        @slot('post_user')
-            {{$post_user}}
-        @endslot
-        @slot('post_desc')
-            {{$post->description}}
-        @endslot
-        @slot('post_tag')
-            @foreach ($tags as $tag)
-                {{$tag->name}}
-            @endforeach
-        @endslot
-        @slot('post_edit')
-            
-        @endslot
-    @endcomponent
+    <div class="detail__post">
+        @component('components.post')
+            @slot('post_id')
+                {{$post->id}}
+            @endslot
+            @slot('post_title')
+                {{$post->name}}
+            @endslot
+            @slot('post_user')
+                {{$post_user}}
+            @endslot
+            @slot('post_desc')
+                {{$post->description}}
+            @endslot
+            @slot('post_tag')
+                @foreach ($tags as $tag)
+                    {{$tag->name}}
+                @endforeach
+            @endslot
+            @slot('post_edit')
+                
+            @endslot
+        @endcomponent
+    </div>
+
+    <div class="day">
+        <input type="hidden" name="selectedDay" value="1" id="selectedDay">  {{--選択中のDay--}}
+        @for ($i = 1; $i <= (int) $post->day ; $i++)
+            <div class="day__button js_day">
+                <input type="hidden" value="{{$i}}" class="today">
+                {{$i}}日目
+            </div>
+        @endfor
+    </div>
+
     @foreach ($places as $place)
         @component('components.place')
+            @slot('place_day', $place->day)
             @slot('images')
                 @foreach ($images as $image)
                     @if ($image->place_id === $place->id)

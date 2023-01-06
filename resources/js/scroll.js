@@ -6,7 +6,7 @@ $(function()
     // 非同期通信が終了するまで次の処理をしない
     let loadFlag = false;
     $(window).on('scroll', function() {
-        const targetTop = $('.js-post').last().offset().top;  //一番下の要素
+        const targetTop = $('.post_target').last().offset().top;  //一番下の要素
         const scroll = $(window).scrollTop();   //スクロールした幅
         const windowHeight = $(window).height();//Windowの幅
         if(scroll + windowHeight > targetTop) {

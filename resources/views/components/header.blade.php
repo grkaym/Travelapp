@@ -7,12 +7,12 @@
         <li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
-                <input type="submit" value="logout">
+                <input type="submit" value="logout" class="button">
             </form>
         </li>
     </ul>
     <div class="header__search">
         <input type="text" class="header__search-text">
-        <button>search</button>
+        <button class="button">search</button>
     </div>
 </header>

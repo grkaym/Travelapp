@@ -1,39 +1,54 @@
 @extends('layouts.l-app')
 @section('title', 'edit')
 @section('main')
-    <p>this page is edit page. post ID = {{$post->id}}</p>
+    {{-- <p>this page is edit page. post ID = {{$post->id}}</p> --}}
     {{-- コンポーネントを使ってヘッド部分を表示する --}}
-    @component('components.post')
-        @slot('post_id')
-            {{$post->id}}
-        @endslot
-
-        @slot('post_title')
-            {{$post->name}}
-        @endslot
-
-        @slot('post_user')
-            {{$post_user}}
-        @endslot
-        
-        @slot('post_tag')
-            @foreach ($tags as $tag)
-                {{$tag->name}}
-            @endforeach
-        @endslot
-
-        @slot('post_desc')
-            {{$post->description}}
-        @endslot
-
-        @slot('post_edit')
+    <div class="edit__post">
+        @component('components.post')
+            @slot('post_id')
+                {{$post->id}}
+            @endslot
+    
+            @slot('post_title')
+                {{$post->name}}
+            @endslot
+    
+            @slot('post_user')
+                {{$post_user}}
+            @endslot
             
-        @endslot
-    @endcomponent
+            @slot('post_tag')
+                @foreach ($tags as $tag)
+                    {{$tag->name}}
+                @endforeach
+            @endslot
+    
+            @slot('post_desc')
+                {{$post->description}}
+            @endslot
+    
+            @slot('post_edit')
+                
+            @endslot
+        @endcomponent
+    </div>
 
-    <button>日数を追加</button>
+    <div class="day">
+        <input type="hidden" name="selectedDay" value="1" id="selectedDay">  {{--選択中のDay--}}
+        @for ($i = 1; $i <= (int) $post->day ; $i++)
+        <div class="day__button js_day">
+            <input type="hidden" value="{{$i}}" class="today">
+            {{$i}}日目
+        </div>
+        @endfor
+        <button class="day__button day__button--add">+</button>
+    </div>
+
+    <a href="/edit/spot/{{$post->id}}">スポットを追加</a>
+
     @foreach ($places as $place)
         @component('components.place')
+            @slot('place_day', $place->day)
             @slot('images')
                 @foreach ($images as $image)
                     @if ($image->place_id === $place->id)
@@ -59,18 +74,21 @@
             @slot('place_image')
                 <form method="post" action="/edit/spot/add_image" enctype="multipart/form-data">
                     @csrf
-                    <div class="spot__image">
-                        <input type="hidden" name="post_id" value="{{$post->id}}">
-                        <input type="hidden" name="place_id" value="{{$place->id}}">
-                        <input type="file" name="image" value="{{old('image')}}">
-                        <input type="submit" value="add image">
+                    <input type="hidden" name="post_id" value="{{$post->id}}">
+                    <input type="hidden" name="place_id" value="{{$place->id}}">
+                    <div class="place__image">
+                        <label class="button place__label--select">
+                            画像を追加
+                            <input type="file" name="image" value="{{old('image')}}" style="display: none;" class="place__button--select">
+                        </label>
+                        <p class="file-name"></p>
+                        <input type="submit" value="send" class="button invisible place__button--send">
                     </div>
                 </form>
             @endslot
         @endcomponent
     @endforeach
-    <a href="/edit/spot/{{$post->id}}">スポットを追加</a>
 @endsection
 @section('js')
-<script src="{{asset('assets/js/slick.js')}}"></script>
+<script src="{{asset('/assets/js/slick.js')}}"></script>
 @endsection

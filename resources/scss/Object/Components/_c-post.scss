@@ -1,9 +1,11 @@
+@use "c-place";
+@use "../../Foundation/variables" as var;
 .post{
-    background-color: #fff;
     color: #888;
     &__container{
-        border-bottom: solid 1px #888;
-        padding: 10px;
+        @extend .place;
+        margin: 10px 0;
+        padding: 15px;
     }
     &__header{
         display: flex;
@@ -13,4 +15,17 @@
         font-size: 28px;
         color: #333;
     }
+    &__tags{
+        margin: 5px 0;
+        font-size: 14px;
+    }
+    &__edit{
+        text-align: right;
+    }
+}
+
+.detail__post,
+.edit__post{
+    background-color: var.$bg-color;
+    margin: 20px 0;
 }

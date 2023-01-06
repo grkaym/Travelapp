@@ -1,3 +1,8 @@
-// body{
-//     background-color: #cfecff;
-// }
+@use "variables" as var;
+a{
+    color: #333;
+    text-decoration: none;
+    &:hover{
+        color: var.$theme-color;
+    }
+}

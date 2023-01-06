@@ -19,6 +19,7 @@ class CreatePlacesTable extends Migration
             $table->string('name', 255)->nullable();
             $table->string('address', 255)->nullable();
             $table->string('description', 255)->nullable();
+            $table->integer('day');
         });
     }
 

@@ -25,11 +25,4 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    //---登録する処理を追加
-    public static function createPost($request)
-    {
-        $forms = $request->only(['user_id', 'name', 'description',]);
-        Post::create($forms);
-    }
 }

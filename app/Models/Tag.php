@@ -11,6 +11,7 @@ class Tag extends Model
 
     // timestampを利用しない
     public $timestamps = false;
+    protected $fillable = ['post_id', 'name'];
 
     // // belongsToの設定
     // public function posts()

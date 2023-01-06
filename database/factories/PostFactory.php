@@ -18,6 +18,7 @@ class PostFactory extends Factory
             'user_id'       => $this->faker->numberBetween(1, 31),
             'name'          => $this->faker->country(),
             'description'   => $this->faker->realText(200),
+            'day'           => $this->faker->numberBetween(1, 5),
         ];
     }
 }

@@ -1,0 +1,36 @@
+@use "../../Foundation/variables" as var;
+
+.button{
+    font-size: 13px;
+    min-width: 60px;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid var.$theme-color;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 0px var.$theme-color;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover{
+        border-color: var.$theme-color;
+        box-shadow: none;
+    }
+}
+
+.day{
+    display: flex;
+    gap: 10px;
+    &__button{
+        @extend .button;
+        &--selected{
+            border-color: var.$theme-color;
+            background-color: var.$theme-color;
+            color: #fff;
+            box-shadow: 1px 1px 1px 0px var.$theme-color;
+        }
+    }
+}

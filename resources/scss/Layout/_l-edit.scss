@@ -1,0 +1,17 @@
+.day{
+    margin: 20px 0;
+}
+
+.place{
+    margin: 20px 0;
+    &__label--select{
+        margin-right: 10px;
+    }
+    &__button--send{
+        margin-left: 10px;
+    }
+}
+
+.place__image{
+    display: flex;
+}

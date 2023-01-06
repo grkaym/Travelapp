@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->integer('user_id');
             $table->string('name', 255)->nullable();
             $table->string('description', 500)->nullable();
+            $table->integer('day');
             $table->integer('open_flag')->default(1);
             $table->nullableTimestamps();
         });

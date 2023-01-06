@@ -39,6 +39,7 @@ Route::get('/restore_user', [App\Http\Controllers\ListController::class, 'restor
 
 // ajax
 Route::post('/ajax/addContent', [App\Http\Controllers\TimelineController::class, 'ajaxAddContent']);
+Route::post('/ajax/switchDay', [App\Http\Controllers\CreateController::class, 'ajaxSwitchDay']);
 
 // 認証
 Auth::routes();
