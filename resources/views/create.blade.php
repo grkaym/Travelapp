@@ -15,7 +15,7 @@
                         @enderror
                         <input type="text" name="name" value="{{old('name')}}" class="forms__table--title">
                     </td>
-                    <td class="title-count counter"></td>
+                    <td class="title-count counter">0/30</td>
                 </tr>
                 <tr>
                     <td>description</td>
@@ -25,7 +25,17 @@
                         @enderror
                         <textarea cols="30" rows="10" name="description" class="forms__table--description">{{old('description')}}</textarea>
                     </td>
-                    <td class="description-count counter"></td>
+                    <td class="description-count counter">0/500</td>
+                </tr>
+                <tr>
+                    <td>tag</td>
+                    <td>
+                        <input type="text" name="tag" class="forms__table--tag">
+                        <input type="text" name="tag2" class="forms__table--tag">
+                        <input type="text" name="tag3" class="forms__table--tag">
+                        <input type="text" name="tag4" class="forms__table--tag">
+                        <input type="text" name="tag5" class="forms__table--tag">
+                    </td>
                 </tr>
                 <tr>
                     <td>days</td>

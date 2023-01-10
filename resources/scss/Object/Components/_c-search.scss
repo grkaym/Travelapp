@@ -1,0 +1,10 @@
+@use "../../Foundation/variables" as var;
+
+.header__search-text{
+    background-color: var.$header-color;
+    border: none;
+    border-bottom: solid 2px var.$theme-color;
+    &:focus-visible{
+        outline: none;
+    }
+}

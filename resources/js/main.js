@@ -22,8 +22,6 @@ $(function()
         var day = $('#selectedDay');
         day.val($(this).find('.today').val());
 
-        console.log(day.val());
-
         //ボタンの見た目を変える
         button.removeClass(selected);
         $(this).addClass(selected);
@@ -37,17 +35,16 @@ $(function()
             }
         }); 
     });
-
     
     //+---------------------------------------------+
     //| edit ファイルアップロードのときのファイル名出す
     //+---------------------------------------------+
     $('.place__button--select').on('change', function() {
         var file = $(this).prop('files')[0];
-        $('.file-name').text(file.name);
+        $(this).parents('.place__image').find('.file-name').text(file.name);
 
         //同時に送信ボタンを出現させる
-        $('.place__button--send').removeClass('invisible');
+        $(this).parents('.place__image').find('.place__button--send').removeClass('invisible');
     });
 
     //+--------------------+
@@ -55,13 +52,38 @@ $(function()
     //+--------------------+
     var title_form = $('.forms__table--title');
     var description_form = $('.forms__table--description');
-
-    $('.title-count').text(title_form.val().length + "/30");
-    $('.description-count').text(description_form.val().length + "/500");
+    var address_form = $('.forms__table--address');
 
     $('.forms').on('keyup', function() {
         $('.title-count').text(title_form.val().length + "/30");
         $('.description-count').text(description_form.val().length + "/500");
+        $('.address-count').text(address_form.val().length + "/80");
     });
 
+    //+------------------------------+
+    //| edit 日数追加時のconfirm
+    //+------------------------------+
+    $('.day__button--add').on('click', function(e) {
+        if(!confirm('日数を追加しますか？')) {
+            e.preventDefault();
+        }
+    });
+
+    $('.day__button--remove').on('click', function(e) {
+        if(!confirm('日数を減らしますか？')) {
+            e.preventDefault();
+        }
+    });
+
+    //+------------------------------+
+    //| search　空欄の時無効
+    //+------------------------------+
+    var search_form     = $('.header__search-text');
+    var search_button   = $('.header__search-button');
+
+    search_button.on('click', function(e) {
+        if(search_form.val() === "") {
+            e.preventDefault();
+        }
+    });
 });

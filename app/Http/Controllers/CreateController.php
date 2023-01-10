@@ -23,18 +23,45 @@ class CreateController extends Controller
         return view('create', ['user_id' => $user_id]);
     }
 
+    // 投稿を作成
     public function create(CreatePostRequest $request)
     {
-        // requestをDBに保存
-        $forms = $request->only(['user_id', 'name', 'description', 'day']);
-        Post::create($forms);
-        
+        // requestをPOSTに保存
+        $post = $request->only(['user_id', 'name', 'description', 'day']);
+
+        Post::create($post);
+    
         $post_id = Post::latest()->first()->id; //新しい投稿のID
+
+        // Tagを保存
+        $tags = [
+            $request->tag,
+            $request->tag2,
+            $request->tag3,
+            $request->tag4,
+            $request->tag5,
+        ];
+
+        // nullでリクエストされた要素を除去
+        foreach($tags as $key => $value) {
+            if($value === null) {
+                unset($tags[$key]);
+            }
+        }
+
+        foreach($tags as $requestTag) {
+            $tag = new Tag;
+            $tag->post_id = $post_id;
+            $tag->name = $requestTag;
+    
+            $tag->save();
+        }
 
         //作成後はeditにリダイレクト
         return redirect()->action([CreateController::class, 'edit'], ['id' => $post_id]);
     }
 
+    // 編集画面
     public function edit(Request $request)
     {
         $postId = $request->id;
@@ -54,16 +81,51 @@ class CreateController extends Controller
         ]);
     }
 
+    // 日数を追加
+    public function addDay(Request $request)
+    {
+        $post = Post::find($request->post_id);
+
+        if((int)$post->day >= 10) {
+            return redirect()->action([CreateController::class, 'edit'], ['id' => $request->post_id]);
+        }
+
+        $post->day = (int)$post->day + 1;
+
+        $post->save();
+
+        return redirect()->action([CreateController::class, 'edit'], ['id' => $request->post_id]);
+    }
+
+    // 日数を減らす
+    public function removeDay(Request $request)
+    {
+        $post = Post::find($request->post_id);
+
+        if((int)$post->day <= 1) {
+            return redirect()->action([CreateController::class, 'edit'], ['id' => $request->post_id]);
+        }
+
+        $post->day = (int)$post->day - 1;
+
+        $post->save();
+
+        return redirect()->action([CreateController::class, 'edit'], ['id' => $request->post_id]);
+    }
+
     public function spot(Request $request)
     {
-        $place_id = $request->id;   //これPOSTIDやん
-        $images = Image::where('place_id', $place_id)->get();
+        $post_id = $request->id;
+        $day = $request->selectedDay;
+        // $images = Image::where('place_id', $post_id)->get();
         return view('spot', [
-            'images' => $images,
-            'place_id' => $request->id,
+            // 'images' => $images,
+            'post_id' => $post_id,
+            'day' => $day,
         ]);
     }
 
+    // スポットを追加
     public function add(Request $request)
     {
         $place = new Place;
@@ -73,6 +135,7 @@ class CreateController extends Controller
         return redirect()->action([CreateController::class, 'edit'], ['id' => $request->post_id]);
     }
 
+    // 画像を追加
     public function addImage(Request $request)
     {
         $place_id = $request->place_id;

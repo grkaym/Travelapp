@@ -20,7 +20,7 @@ class MypageController extends Controller
         // $posts = Post::all();
         $auth       = Auth::user();
         $user_name  = $auth->name;
-        $posts      = Post::where('user_id', Auth::id())->get();
+        $posts      = Post::where('user_id', Auth::id())->orderBy('id', 'desc')->get();
         $tags       = Tag::all();
         $users      = User::all();
 

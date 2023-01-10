@@ -11,8 +11,13 @@
             </form>
         </li>
     </ul>
-    <div class="header__search">
-        <input type="text" class="header__search-text">
-        <button class="button">search</button>
-    </div>
+    <form action="/search" method="get">
+        <div class="header__search">
+            <input type="text" class="header__search-text" name="keyword">
+            <button class="header__search-button" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            
+        </div>
+    </form>
 </header>

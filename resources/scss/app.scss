@@ -1,3 +1,8 @@
+// Font Awesome
+@use '~@fortawesome/fontawesome-free/scss/fontawesome';
+@use '~@fortawesome/fontawesome-free/scss/solid';
+@use '~@fortawesome/fontawesome-free/scss/regular';
+@use '~@fortawesome/fontawesome-free/scss/brands';
 // Foundation
 @use "Foundation/variables";
 @use "Foundation/base";
@@ -15,6 +20,7 @@
 @use "Object/Components/c-post";
 @use "Object/Components/c-place";
 @use "Object/Components/c-button";
+@use "Object/Components/c-search";
 
 // project
 @use "Object/Project/p-forms";

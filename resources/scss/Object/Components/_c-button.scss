@@ -27,10 +27,19 @@
 
     &--add-spot{
         height: 50px;
+        display: block;
+        width: 100%;
         &:hover{
             box-shadow: none;
         }
     }
+}
+
+.header__search-button{
+    cursor: pointer;
+    background-color: var.$header-color;
+    color: var.$theme-color;
+    border: none;
 }
 
 .day{

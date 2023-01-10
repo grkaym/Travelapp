@@ -26,7 +26,7 @@
         @slot('post_tag')
             @foreach ($tags as $tag)
                 @if ($post->id === $tag->post_id)
-                    {{$tag->name}}
+                    <a href="/search/tag/{{$tag->name}}">{{$tag->name}}</a>
                 @endif
             @endforeach
         @endslot

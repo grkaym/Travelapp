@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Post;
 
 class Tag extends Model
 {
@@ -11,11 +12,11 @@ class Tag extends Model
 
     // timestampを利用しない
     public $timestamps = false;
-    protected $fillable = ['post_id', 'name'];
+    protected $guarded = ['id'];
 
-    // // belongsToの設定
-    // public function posts()
-    // {
-    //     return $this->belongsTo(Post::class);
-    // }
+    // belongsToの設定
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
 }

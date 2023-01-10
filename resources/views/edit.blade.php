@@ -34,14 +34,19 @@
     </div>
 
     <div class="day">
-        <input type="hidden" name="selectedDay" value="1" id="selectedDay">  {{--選択中のDay--}}
+        <div class="message">
+            @isset($message)
+                {{$message}}
+            @endisset
+        </div>
+        <a href="/edit/remove_day/{{$post->id}}"><button class="day__button day__button--remove">-</button></a>
         @for ($i = 1; $i <= (int) $post->day ; $i++)
         <div class="day__button js_day">
             <input type="hidden" value="{{$i}}" class="today">
             {{$i}}日目
         </div>
         @endfor
-        <button class="day__button day__button--add">+</button>
+        <a href="/edit/add_day/{{$post->id}}"><button class="day__button day__button--add">+</button></a>
     </div>
 
     @foreach ($places as $place)
@@ -70,25 +75,27 @@
                 {{$post->id}}
             @endslot
             @slot('place_image')
-                <form method="post" action="/edit/spot/add_image" enctype="multipart/form-data">
+                <form method="post" action="/edit/spot/add_image/{{$place->id}}" enctype="multipart/form-data" id="{{$place->id}}">
                     @csrf
-                    <input type="hidden" name="post_id" value="{{$post->id}}">
-                    <input type="hidden" name="place_id" value="{{$place->id}}">
+                    <input type="hidden" name="post_id" value="{{$post->id}}" form="{{$place->id}}">
+                    <input type="hidden" name="place_id" value="{{$place->id}}" form="{{$place->id}}">
                     <div class="place__image">
                         <label class="button place__label--select">
                             画像を追加
-                            <input type="file" name="image" value="{{old('image')}}" style="display: none;" class="place__button--select">
+                            <input type="file" name="image" value="{{old('image')}}" style="display: none;" class="place__button--select" form="{{$place->id}}">
                         </label>
                         <p class="file-name"></p>
-                        <input type="submit" value="send" class="button invisible place__button--send">
+                        <input type="submit" value="send" class="button invisible place__button--send" form="{{$place->id}}">
                     </div>
                 </form>
             @endslot
         @endcomponent
     @endforeach
-    <div class="add-button">
-        <a href="/edit/spot/{{$post->id}}" class="button button--add-spot">スポットを追加</a>
-    </div>
+    <form class="add-button" method="post" action="/edit/spot/{{$post->id}}">
+        @csrf
+        <input type="hidden" name="selectedDay" value="1" id="selectedDay">  {{--選択中のDay--}}
+        <button type="submit" class="button button--add-spot">スポットを追加</button>
+    </form>
 @endsection
 @section('js')
 <script src="{{asset('/assets/js/slick.js')}}"></script>
