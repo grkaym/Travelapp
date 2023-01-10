@@ -7,6 +7,7 @@ use Auth;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Tag;
+use App\Models\Like;
 
 class MypageController extends Controller
 {
@@ -29,6 +30,7 @@ class MypageController extends Controller
             'tags'  => $tags,
             'users' => $users,
             'user_name' => $user_name,
+            'liked'
         ]);
     }
 }

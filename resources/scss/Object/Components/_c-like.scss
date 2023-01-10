@@ -1,0 +1,9 @@
+@use "../../Foundation/variables" as var;
+
+.like{
+    cursor: pointer;
+    color: #888;
+}
+.liked{
+    color: var.$theme-color;
+}

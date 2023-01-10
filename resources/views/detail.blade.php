@@ -24,8 +24,14 @@
                 
             @endslot
         @endcomponent
+        <div class="like-container">
+            @if ($liked)
+                <i class="fa-solid fa-heart like liked"></i>
+            @else
+                <i class="fa-solid fa-heart like"></i>                
+            @endif
+        </div>
     </div>
-
     <div class="day">
         <input type="hidden" name="selectedDay" value="1" id="selectedDay">  {{--選択中のDay--}}
         @for ($i = 1; $i <= (int) $post->day ; $i++)
@@ -69,4 +75,5 @@
 @endsection
 @section('js')
 <script src="{{asset('assets/js/slick.js')}}"></script>
+<script src="{{asset('assets/js/like.js')}}"></script>
 @endsection
