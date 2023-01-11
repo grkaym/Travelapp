@@ -35,6 +35,7 @@
     }
 }
 
+// ヘッダー検索ボタン
 .header__search-button{
     cursor: pointer;
     background-color: var.$header-color;
@@ -42,6 +43,30 @@
     border: none;
 }
 
+// 場所削除ボタン
+.place__delete--button{
+    border: none;
+    background-color: #fff;
+    font-size: 17px;
+    color: #888;
+    cursor: pointer;
+    transition: all .2s;
+    &:hover{
+        color: var.$theme-color;
+    }
+}
+
+// 編集ボタン
+.edit-button{
+    color: #888;
+    transition: all .2s;
+    font-size: 16px;
+    &:hover{
+        color: var.$theme-color;
+    }
+}
+
+// 日付ボタン
 .day{
     display: flex;
     gap: 10px;
@@ -52,6 +77,11 @@
             background-color: var.$theme-color;
             color: #fff;
             box-shadow: 1px 1px 1px 0px var.$theme-color;
+        }
+        &--remove,
+        &--add{
+            color: #888;
+            font-size: 12px;
         }
     }
 }

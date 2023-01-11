@@ -37,6 +37,7 @@ Route::get('/edit/add_day/{post_id?}', [App\Http\Controllers\CreateController::c
 Route::get('/edit/remove_day/{post_id?}', [App\Http\Controllers\CreateController::class, 'removeDay']);
 Route::post('/edit/spot/{id?}', [App\Http\Controllers\CreateController::class, 'spot']);
 Route::post('/edit/spot/add/{id?}', [App\Http\Controllers\CreateController::class, 'add']);
+Route::post('/edit/spot/delete/{id?}', [App\Http\Controllers\CreateController::class, 'spotDelete']);
 Route::post('/edit/spot/add_image/{id?}', [App\Http\Controllers\CreateController::class, 'addImage']);
 
 // post detail

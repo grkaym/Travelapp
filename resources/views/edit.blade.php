@@ -39,14 +39,14 @@
                 {{$message}}
             @endisset
         </div>
-        <a href="/edit/remove_day/{{$post->id}}"><button class="day__button day__button--remove">-</button></a>
+        <a href="/edit/remove_day/{{$post->id}}"><button class="day__button day__button--remove"><i class="fa-solid fa-minus"></i></button></a>
         @for ($i = 1; $i <= (int) $post->day ; $i++)
         <div class="day__button js_day">
             <input type="hidden" value="{{$i}}" class="today">
             {{$i}}日目
         </div>
         @endfor
-        <a href="/edit/add_day/{{$post->id}}"><button class="day__button day__button--add">+</button></a>
+        <a href="/edit/add_day/{{$post->id}}"><button class="day__button day__button--add"><i class="fa-solid fa-plus"></i></button></a>
     </div>
 
     @foreach ($places as $place)
@@ -78,7 +78,7 @@
                 <form method="post" action="/edit/spot/add_image/{{$place->id}}" enctype="multipart/form-data" id="{{$place->id}}">
                     @csrf
                     <input type="hidden" name="post_id" value="{{$post->id}}" form="{{$place->id}}">
-                    <input type="hidden" name="place_id" value="{{$place->id}}" form="{{$place->id}}">
+                    <input type="hidden" name="place_id" value="{{$place->id}}" form="{{$place->id}}" class="place_id">
                     <div class="place__image">
                         <label class="button place__label--select">
                             画像を追加
@@ -88,6 +88,16 @@
                         <input type="submit" value="send" class="button invisible place__button--send" form="{{$place->id}}">
                     </div>
                 </form>
+
+                {{-- 場所削除 --}}
+                <div class="place__delete">
+                    <form action="/edit/spot/delete/{{$place->id}}" id="delete_{{$place->id}}" method="post">
+                        @csrf
+                        <input type="hidden" name="post_id" value="{{$post->id}}" form="delete_{{$place->id}}">
+                        <input type="hidden" name="place_id" value="{{$place->id}}" class="place_id" form="delete_{{$place->id}}">
+                        <button type="submit" class="place__delete--button" form="delete_{{$place->id}}"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                </div>
             @endslot
         @endcomponent
     @endforeach

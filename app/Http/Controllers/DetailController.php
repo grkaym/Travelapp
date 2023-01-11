@@ -22,13 +22,14 @@ class DetailController extends Controller
         $images = Image::all(); //画像ぜんぶ
         $like = new Like;
         $liked = $like->isLike(Auth::id(), $post_id);
+
         return view('detail', [
             'post' => $post,
             'tags' => $tags,
             'post_user' => $post_user,
             'places' => $places,
             'images' => $images,
-            'liked' => $liked
+            'liked' => $liked,
         ]);
     }
 }

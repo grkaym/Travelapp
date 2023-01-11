@@ -5,7 +5,7 @@
     &__container{
         @extend .place;
         margin: 10px 0;
-        padding: 15px;
+        padding: 10px 15px 5px 15px;
     }
     &__header{
         display: flex;
@@ -18,10 +18,31 @@
     &__tags{
         margin: 5px 0;
         font-size: 14px;
+        a{
+            color: #888;
+            &:hover{
+                color: var.$theme-color;
+            }
+        }
+        &--icon{
+            margin-right: 5px;
+        }
     }
     &__edit{
-        text-align: right;
+        // text-align: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+    &__wrap{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.fa-user-pen{
+    margin-right: 5px;
+    font-size: 14px;
 }
 
 .detail__post,

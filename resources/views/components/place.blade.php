@@ -4,7 +4,7 @@
         {{$images}}
     </ul>
     <h3 class="place__name">{{$place_name}}</h3>
-    <p class="place__address">住所：{{$place_address}}</p>
+    <p class="place__address"><i class="fa-solid fa-location-dot place__address--icon"></i>{{$place_address}}</p>
     <p class="place__description">{{$place_description}}</p>
-    {{$place_image}}
+    <div class="place__container">{{$place_image}}</div>
 </div>

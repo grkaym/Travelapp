@@ -36,7 +36,7 @@
         @endslot
         
         @slot('post_edit')
-            <p class="post__edit"><a href="/edit/{{$post->id}}" class="post__link--edit">編集</a></p>
+            <p class="post__edit"><a href="/edit/{{$post->id}}" class="post__link--edit"><i class="fa-regular fa-pen-to-square edit-button"></i></a></p>
         @endslot
     @endcomponent
 </div>

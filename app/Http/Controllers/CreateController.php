@@ -135,6 +135,14 @@ class CreateController extends Controller
         return redirect()->action([CreateController::class, 'edit'], ['id' => $request->post_id]);
     }
 
+    // スポット削除
+    public function spotDelete(Request $request)
+    {
+        Place::where('id', $request->place_id)->delete();
+
+        return redirect()->action([CreateController::class, 'edit'], ['id' => $request->post_id]);
+    }
+
     // 画像を追加
     public function addImage(Request $request)
     {
