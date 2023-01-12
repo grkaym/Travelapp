@@ -2,14 +2,14 @@
 @section('title', 'userlist')
 @section('main')
     <h2>ユーザーリスト</h2>
-    <table>
+    <table class="users">
         <tr>
-            <td>ID</td>
-            <td>name</td>
-            <td>created_at</td>
-            <td>last_login_at</td>
-            <td>role</td>
-            <td>del/res</td>
+            <th>ID</th>
+            <th>ユーザー名</th>
+            <th>登録日時</th>
+            <th>最終ログイン</th>
+            <th>種類</th>
+            <th>削除/解除</th>
         </tr>
         @foreach ($users as $user)
             <tr>

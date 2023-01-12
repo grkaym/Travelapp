@@ -1,0 +1,22 @@
+@use "../../Foundation/variables" as var;
+
+.users{
+    border: 2px solid var.$theme-color;
+    width: 100%;
+    margin: 10px 0;
+    tr{
+        &:first-child{
+            background-color: var.$header-color;
+            font-weight: normal;
+        }
+        &:nth-child(odd){
+            background-color: #fff;
+        }
+        &:nth-child(even){
+            background-color: var.$header-color;
+        }
+    }
+    td{
+        text-align: center;
+    }
+}

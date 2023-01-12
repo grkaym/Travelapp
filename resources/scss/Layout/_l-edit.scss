@@ -19,3 +19,11 @@
 .add-button{
     margin: 20px 0;
 }
+
+.edit__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 10px;
+}

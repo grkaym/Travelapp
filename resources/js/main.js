@@ -1,3 +1,5 @@
+const { each } = require("jquery");
+
 $(function()
 {
     switchDay();
@@ -6,6 +8,9 @@ $(function()
     dayConfirm();
     checkSearchForm();
     placeDelete();
+    postDelete();
+    mypageTab();
+    logoutConfirm();
     //+--------------------------------+
     //| place 日付切り替え
     //+--------------------------------+
@@ -90,7 +95,7 @@ $(function()
     }
 
     //+------------------------------+
-    //| edit place削除ボタン
+    //| edit place,post削除ボタン
     //+------------------------------+
     function placeDelete() {
         var del = $('.place__delete--button');
@@ -104,6 +109,17 @@ $(function()
         });
     }
 
+    function postDelete() {
+        var del = $('.post__delete--button');
+        const MESSAGE = "この投稿を削除しますか？\n登録したスポット、画像などは失われます。";
+
+        del.on('click', function(e) {
+            if(!confirm(MESSAGE)) {
+                e.preventDefault();
+            }
+        })
+    }
+
 
     //+------------------------------+
     //| search　空欄の時無効
@@ -114,6 +130,42 @@ $(function()
     
         search_button.on('click', function(e) {
             if(search_form.val() === "") {
+                e.preventDefault();
+            }
+        });
+    }
+
+    //+------------------------------+
+    //| mypage タブ
+    //+------------------------------+
+    function mypageTab() {
+        var tab = $('#tab').find('li');
+        var post = $('.my__post');
+        var like = $('.my__liked');
+
+        tab.on('click', function() {
+            // タブ
+            tab.removeClass('selected');
+            $(this).addClass('selected');
+            // コンテンツ
+            $('.tab__wrapper').removeClass('invisible');
+            if(tab.first().hasClass('selected')) {
+                like.addClass('invisible');
+            } else{
+                post.addClass('invisible');
+            }
+
+        });
+
+    }
+
+    //+------------------------------+
+    //| mypage ログアウト
+    //+------------------------------+
+    function logoutConfirm() {
+        const MESSAGE = 'ログアウトしますか？'
+        $('.header--logout').on('click', function(e) {
+            if(!confirm(MESSAGE)) {
                 e.preventDefault();
             }
         });

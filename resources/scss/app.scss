@@ -14,6 +14,7 @@
 @use "Layout/l-wrapper";
 @use "Layout/l-main";
 @use "Layout/l-edit";
+@use "Layout/l-mypage";
 
 // Object
 // component
@@ -25,6 +26,9 @@
 
 // project
 @use "Object/Project/p-forms";
-
+@use "Object/Project/p-user-list";
+@use "Object/Project/p-tab";
 //utility
 @use "Object/Utility/u-status";
+
+@import url('https://fonts.googleapis.com/css?family=Nunito');

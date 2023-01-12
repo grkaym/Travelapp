@@ -1,7 +1,7 @@
 @extends('layouts.l-app')
 @section('title', 'create')
 @section('main')
-    <h2>Create Post</h2>
+    <h2>あたらしく投稿する</h2>
     <div class="create">
         <form action="/edit" method="post" class="forms">
             <input type="hidden" name="user_id" value="{{$user_id}}">
@@ -37,7 +37,7 @@
                         <input type="text" name="tag5" class="forms__table--tag">
                     </td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <td>days</td>
                     <td>
                         @error('day')
@@ -46,7 +46,7 @@
                         <input type="text" name="day" value="{{old('day')}}" class="forms__table--days">
                     </td>
                     <td class="days-count counter"></td>
-                </tr>
+                </tr> --}}
             </table>
             <td><input type="submit" value="作成" class="button"></td>
         </form>

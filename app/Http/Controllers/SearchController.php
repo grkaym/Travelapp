@@ -9,6 +9,11 @@ use App\Models\Tag;
 
 class SearchController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(Request $request)
     {
         $keyword = $request->keyword;   //検索ワード
@@ -17,11 +22,14 @@ class SearchController extends Controller
         $tags   = Tag::all();
         $users  = User::all();
 
+        $count = $posts->count();
+
         return view('search', [
             'keyword' => $keyword,
             'posts' => $posts,
             'users' => $users,
             'tags'  => $tags,
+            'count' => $count,
         ]);
     }
 
@@ -31,11 +39,14 @@ class SearchController extends Controller
         $tags   = Tag::all();
         $users  = User::all();
 
+        $count = $posts->count();
+
         return view('search', [
             'keyword' => $tagName,
             'posts' => $posts,
             'users' => $users,
             'tags'  => $tags,
+            'count' => $count,
         ]);
     }
 }

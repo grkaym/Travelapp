@@ -34,6 +34,12 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
     /**
      * 投稿名、投稿desc、タグ名、場所名、場所説明から
      * キーワードを含む投稿を返す

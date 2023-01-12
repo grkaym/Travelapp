@@ -26,7 +26,6 @@ class CreatePostRequest extends FormRequest
         return [
             'name'          => 'required | max:30',
             'description'   => 'max:500',
-            'day'           => 'required | integer | max:10',
         ];
     }
 
@@ -36,9 +35,6 @@ class CreatePostRequest extends FormRequest
             'name.required'     => 'タイトルは入力必須です。',
             'name.max'          => 'タイトルは30文字以内で入力してください。',
             'description.max'   => '説明は500文字以内で入力してください。',
-            'day.required'      => '日数は入力必須です。',
-            'day.integer'       => '日数は整数で入力してください。',
-            'day.max'           => '日数は最大10日です。',
         ];
     }
 }

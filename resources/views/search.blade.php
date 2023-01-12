@@ -1,7 +1,7 @@
 @extends('layouts.l-app')
 @section('title', 'search')
 @section('main')
-    <h2>"{{$keyword}}"の検索結果</h2>
+    <h2>"{{$keyword}}" {{$count}}件の検索結果</h2>
     {{-- 取得した投稿をすべて表示する。 --}}
     @foreach ($posts as $post)
         <div class="post__container">
@@ -25,7 +25,7 @@
                 @slot('post_tag')
                     @foreach ($tags as $tag)
                         @if ($post->id === $tag->post_id)
-                            {{$tag->name}}
+                            <a href="/search/tag/{{$tag->name}}">{{$tag->name}}</a>
                         @endif
                     @endforeach
                 @endslot

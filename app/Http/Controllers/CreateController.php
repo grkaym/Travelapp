@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\Post;
+use App\Models\User;
 use App\Models\Place;
 use App\Models\Tag;
+use App\Models\Like;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreatePostRequest;
 use App\Models\Image;
@@ -27,7 +29,7 @@ class CreateController extends Controller
     public function create(CreatePostRequest $request)
     {
         // requestをPOSTに保存
-        $post = $request->only(['user_id', 'name', 'description', 'day']);
+        $post = $request->only(['user_id', 'name', 'description']);
 
         Post::create($post);
     
@@ -59,6 +61,26 @@ class CreateController extends Controller
 
         //作成後はeditにリダイレクト
         return redirect()->action([CreateController::class, 'edit'], ['id' => $post_id]);
+    }
+
+    // 投稿を削除(それに伴って同じIDを持つ場所、タグ、いいねも削除)
+    public function postDelete(Request $request)
+    {
+        $post_id = $request->post_id;
+
+        $post = Post::find($post_id);
+        $post->delete();
+
+        $place = Place::where('post_id', $post_id);
+        $place->delete();
+
+        $tag = Tag::where('post_id', $post_id);
+        $tag->delete();
+
+        $like = Like::where('post_id', $post_id);
+        $like->delete();
+
+        return redirect()->action([MypageController::class, 'index']);
     }
 
     // 編集画面
@@ -157,5 +179,16 @@ class CreateController extends Controller
         $image->save();
         //spotにリダイレクト
         return redirect()->action([CreateController::class, 'edit'], ['id' => $post_id]);
+    }
+
+    public function complete(Request $request)
+    {
+        $post = Post::find($request->post_id);
+
+        $post->open_flag = 1;
+
+        $post->save();
+
+        return view('complete');
     }
 }
