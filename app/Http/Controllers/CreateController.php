@@ -10,6 +10,7 @@ use App\Models\Tag;
 use App\Models\Like;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreatePostRequest;
+use App\Http\Requests\CreatePlaceRequest;
 use App\Models\Image;
 
 class CreateController extends Controller
@@ -93,6 +94,7 @@ class CreateController extends Controller
         $tags = Tag::where('post_id', $postId)->get();  //タグ
         $places = Place::where('post_id', $postId)->get();  //スポット
         $images = Image::all(); //画像ぜんぶ
+        $user_id = Auth::id();
 
         return view('edit', [
             'post' => $post,
@@ -100,6 +102,7 @@ class CreateController extends Controller
             'post_user' => $post_user,
             'places' => $places,
             'images' => $images,
+            'user_id' => $user_id,
         ]);
     }
 
@@ -123,6 +126,7 @@ class CreateController extends Controller
     public function removeDay(Request $request)
     {
         $post = Post::find($request->post_id);
+        $del_day = $post->day;
 
         if((int)$post->day <= 1) {
             return redirect()->action([CreateController::class, 'edit'], ['id' => $request->post_id]);
@@ -131,6 +135,10 @@ class CreateController extends Controller
         $post->day = (int)$post->day - 1;
 
         $post->save();
+
+        $place = new Place;
+
+        $place->where('day', $del_day)->delete();
 
         return redirect()->action([CreateController::class, 'edit'], ['id' => $request->post_id]);
     }
@@ -148,7 +156,7 @@ class CreateController extends Controller
     }
 
     // スポットを追加
-    public function add(Request $request)
+    public function add(CreatePlaceRequest $request)
     {
         $place = new Place;
         $items = $request->only(['post_id', 'name', 'address', 'description', 'day']);
@@ -189,6 +197,34 @@ class CreateController extends Controller
 
         $post->save();
 
-        return view('complete');
+        return redirect('/');
+    }
+
+    public function rename(Request $request)
+    {
+        return view('rename', [
+            'name' => $request->name,
+            'address' => $request->address,
+            'description' => $request->description,
+            'place_id' => $request->place_id,
+            'post_id' => $request->post_id
+
+        ]);
+    }
+
+    public function updateSpot(CreatePlaceRequest $request)
+    {
+        $post_id = $request->post_id;
+        $place_id = $request->place_id;
+
+        $place = Place::find($place_id);
+
+        $place->name        = $request->name;
+        $place->address     = $request->address;
+        $place->description = $request->description;
+
+        $place->save();
+
+        return redirect()->action([CreateController::class, 'edit'], ['id' => $post_id]);
     }
 }

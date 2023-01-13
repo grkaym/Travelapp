@@ -15,7 +15,9 @@
                     <i class="fa-solid fa-lock"></i>
                 @endif
             @endslot
-    
+            @slot('user_id')
+                {{$post->user_id}}
+            @endslot
             @slot('post_user')
                 {{$post_user}}
             @endslot
@@ -31,7 +33,7 @@
             @endslot
     
             @slot('post_edit')
-                
+
             @endslot
         @endcomponent
     </div>
@@ -93,13 +95,28 @@
                 </form>
 
                 {{-- 場所削除 --}}
-                <div class="place__delete">
-                    <form action="/edit/spot/delete/{{$place->id}}" id="delete_{{$place->id}}" method="post">
-                        @csrf
-                        <input type="hidden" name="post_id" value="{{$post->id}}" form="delete_{{$place->id}}">
-                        <input type="hidden" name="place_id" value="{{$place->id}}" class="place_id" form="delete_{{$place->id}}">
-                        <button type="submit" class="place__delete--button" form="delete_{{$place->id}}"><i class="fa-solid fa-trash"></i></button>
-                    </form>
+                <div class="place__button-container">
+                    <div class="place__delete">
+                        <form action="/edit/spot/delete/{{$place->id}}" id="delete_{{$place->id}}" method="post">
+                            @csrf
+                            <input type="hidden" name="post_id" value="{{$post->id}}" form="delete_{{$place->id}}">
+                            <input type="hidden" name="place_id" value="{{$place->id}}" class="place_id" form="delete_{{$place->id}}">
+                            <button type="submit" class="place__delete--button" form="delete_{{$place->id}}"><i class="fa-solid fa-trash"></i></button>
+                        </form>
+                    </div>
+                    <div class="place__edit">
+                        <form action="/rename" method="post" id="edit_{{$place->id}}">
+                            @csrf
+                            <input type="hidden" name="post_id" value="{{$post->id}}" form="edit_{{$place->id}}">
+                            <input type="hidden" name="place_id" value="{{$place->id}}" form="edit_{{$place->id}}">
+                            <input type="hidden" name="name" value="{{$place->name}}" form="edit_{{$place->id}}">
+                            <input type="hidden" name="description" value="{{$place->description}}" form="edit_{{$place->id}}">
+                            <input type="hidden" name="address" value="{{$place->address}}" form="edit_{{$place->id}}">
+                            <button type="submit" class="place__edit--button" form="edit_{{$place->id}}">
+                                <i class="fa-regular fa-pen-to-square edit-button"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             @endslot
         @endcomponent

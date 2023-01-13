@@ -11,6 +11,7 @@ $(function()
     postDelete();
     mypageTab();
     logoutConfirm();
+    openAlert();
     //+--------------------------------+
     //| place 日付切り替え
     //+--------------------------------+
@@ -88,7 +89,7 @@ $(function()
         });
     
         $('.day__button--remove').on('click', function(e) {
-            if(!confirm('日数を減らしますか？')) {
+            if(!confirm('日数を減らしますか？\n最終日に登録されたスポットは失われます。')) {
                 e.preventDefault();
             }
         });
@@ -165,6 +166,20 @@ $(function()
     function logoutConfirm() {
         const MESSAGE = 'ログアウトしますか？'
         $('.header--logout').on('click', function(e) {
+            if(!confirm(MESSAGE)) {
+                e.preventDefault();
+            }
+        });
+    }
+
+    //+------------------------------+
+    //| edit 公開ボタン
+    //+------------------------------+
+    function openAlert() {
+        var button = $('.button--done');
+        const MESSAGE = '作成した旅程を公開しますか？';
+
+        button.on('click', function(e) {
             if(!confirm(MESSAGE)) {
                 e.preventDefault();
             }

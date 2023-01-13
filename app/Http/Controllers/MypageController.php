@@ -32,7 +32,7 @@ class MypageController extends Controller
 
         $posts_liked = $post->whereHas('likes', function($q) use($user_id) {
             $q->where('user_id', $user_id);
-        })->get();
+        })->orderBy('id', 'desc')->get();
 
         return view('index', [
             'posts' => $posts,
@@ -40,6 +40,35 @@ class MypageController extends Controller
             'users' => $users,
             'user_name' => $user_name,
             'role'  => $role,
+            'posts_liked' => $posts_liked,
+        ]);
+    }
+
+    public function other(Request $request)
+    {
+        $user_id = $request->id;
+
+        // 自分のマイページに飛んだらリダイレクト
+        if($user_id == Auth::id()) {
+            return redirect()->action([MypageController::class, 'index']);
+        }
+
+        $user_name = User::find($user_id)->name;
+        $posts      = Post::where('user_id', $user_id)->orderBy('id', 'desc')->get();
+        $tags       = Tag::all();
+        $users      = User::all();
+
+        $post = new Post;
+
+        $posts_liked = $post->whereHas('likes', function($q) use($user_id) {
+            $q->where('user_id', $user_id);
+        })->orderBy('id', 'desc')->get();
+
+        return view('other', [
+            'posts' => $posts,
+            'tags'  => $tags,
+            'users' => $users,
+            'user_name' => $user_name,
             'posts_liked' => $posts_liked,
         ]);
     }

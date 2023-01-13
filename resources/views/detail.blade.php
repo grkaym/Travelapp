@@ -9,6 +9,12 @@
             @slot('post_title')
                 {{$post->name}}
             @endslot
+            @slot('user_id')
+                {{$post->user_id}}
+            @endslot
+            @slot('user_id')
+                {{$post->user_id}}
+            @endslot
             @slot('post_user')
                 {{$post_user}}
             @endslot

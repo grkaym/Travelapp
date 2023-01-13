@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreatePostRequest extends FormRequest
+class CreatePlaceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,20 +25,18 @@ class CreatePostRequest extends FormRequest
     {
         return [
             'name'          => 'required | max:30',
+            'address'       => 'required | max:80',
             'description'   => 'max:500',
-            'tag'           => 'max:8',
-            'tag2'          => 'max:8',
-            'tag3'          => 'max:8',
-            'tag4'          => 'max:8',
-            'tag5'          => 'max:8',
         ];
     }
 
     public function messages()
     {
         return[
-            'name.required'     => 'タイトルは入力必須です。',
-            'name.max'          => 'タイトルは30文字以内で入力してください。',
+            'name.required'     => '名前は入力必須です。',
+            'name.max'          => '名前は30文字以内で入力してください。',
+            'address.required'  => '住所は入力必須です。',
+            'address.max'       => '住所は80文字以内で入力してください。',
             'description.max'   => '説明は500文字以内で入力してください。',
         ];
     }

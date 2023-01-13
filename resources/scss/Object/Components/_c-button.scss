@@ -45,7 +45,9 @@
 
 // 場所削除ボタン
 .place__delete--button,
-.post__delete--button{
+.post__delete--button,
+.place__edit--button
+{
     border: none;
     background-color: #fff;
     font-size: 17px;
@@ -57,11 +59,16 @@
     }
 }
 
+.place__edit--button{
+    font-size: 18px;
+}
+
 // 編集ボタン
 .edit-button{
     color: #888;
     transition: all .2s;
     font-size: 16px;
+
     &:hover{
         color: var.$theme-color;
     }
@@ -85,4 +92,9 @@
             font-size: 12px;
         }
     }
+}
+
+.create--button{
+    display: inline-block;
+    width: 60px;
 }

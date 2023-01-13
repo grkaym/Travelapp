@@ -38,6 +38,14 @@
         display: flex;
         justify-content: space-between;
     }
+    &__user{
+        a{
+            color: #888;
+            &:hover{
+                color: var.$theme-color;
+            }
+        }
+    }
 }
 
 .fa-user-pen{

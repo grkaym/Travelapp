@@ -12,6 +12,10 @@
                 @slot('post_title')
                     <a href="/detail/{{$post->id}}">{{$post->name}}</a>
                 @endslot
+
+                @slot('user_id')
+                    {{$post->user_id}}
+                @endslot
             
                 @slot('post_user')
                 @foreach ($users as $user)
