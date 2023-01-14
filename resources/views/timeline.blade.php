@@ -1,5 +1,5 @@
 @extends('layouts.l-app')
-@section('title', 'timeline')
+@section('title', 'travel - timeline')
 @section('main')
     <input type="hidden" id="count" value="20">
     <div class="post__wrapper js-post">

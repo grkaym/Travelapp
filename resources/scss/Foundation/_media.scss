@@ -1,0 +1,22 @@
+// ブレイクポイントを定義
+$tab: 768px;
+$sp: 420px;
+$sp-form: 560px;
+
+@mixin tab {
+    @media screen and (max-width: ($tab)) {
+        @content;
+    }
+}
+
+@mixin sp {
+    @media screen and (max-width: ($sp)) {
+        @content;
+    }
+}
+
+@mixin sp-form {
+    @media screen and (max-width: ($sp-form)) {
+        @content;
+    }
+}

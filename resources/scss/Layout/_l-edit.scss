@@ -1,3 +1,4 @@
+@use "../Foundation/media" as m;
 .day{
     margin: 20px 0;
 }
@@ -6,9 +7,15 @@
     margin: 20px 0;
     &__label--select{
         margin-right: 10px;
+        @include m.tab {
+            margin-right: 0;
+        }
     }
     &__button--send{
         margin-left: 10px;
+        @include m.tab {
+            margin-left: 0;
+        }
     }
 }
 

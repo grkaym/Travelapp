@@ -1,5 +1,5 @@
 @extends('layouts.l-app')
-@section('title', 'create')
+@section('title', 'travel - create')
 @section('main')
     <h2>新しく投稿する</h2>
     <div class="create">

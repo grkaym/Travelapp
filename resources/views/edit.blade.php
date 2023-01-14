@@ -1,5 +1,5 @@
 @extends('layouts.l-app')
-@section('title', 'edit')
+@section('title', 'travel - edit')
 @section('main')
     {{-- <p>this page is edit page. post ID = {{$post->id}}</p> --}}
     {{-- コンポーネントを使ってヘッド部分を表示する --}}
@@ -86,11 +86,11 @@
                     <input type="hidden" name="place_id" value="{{$place->id}}" form="{{$place->id}}" class="place_id">
                     <div class="place__image">
                         <label class="button place__label--select">
-                            画像を追加
-                            <input type="file" name="image" value="{{old('image')}}" style="display: none;" class="place__button--select" form="{{$place->id}}">
+                            選択
+                            <input type="file" name="image" value="{{old('image')}}" accept="image/jpg, image/jpeg, image/png" style="display: none;" class="place__button--select" form="{{$place->id}}">
                         </label>
                         <p class="file-name"></p>
-                        <input type="submit" value="send" class="button invisible place__button--send" form="{{$place->id}}">
+                        <input type="submit" value="追加" class="button invisible place__button--send" form="{{$place->id}}">
                     </div>
                 </form>
 

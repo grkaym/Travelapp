@@ -1,4 +1,5 @@
 @use "../Foundation/variables" as var;
+@use "../Foundation/media" as m;
 .header{
     width: 100%;
     display: flex;
@@ -10,22 +11,76 @@
     background-color: var.$header-color;
 
     &__container{
+        flex: 1;
         display: flex;
         gap: 40px;
+        @include m.tab {
+            width: 30%;
+        }
     }
     &__title{
         font-size: 32px;
     }
-
+    &__search{
+        flex: 1;
+        width: 100%;
+        @include m.tab {
+            width: 100%;
+        }
+        &-wrap{
+            @include m.tab{
+                display: flex;
+                align-items: center;
+                gap: 40px;
+            }
+        }
+        &-text{
+            @include m.sp {
+                width: 80%;
+                margin-left: 5px;
+            }
+        }
+    }
     &__nav{
         display: flex;
         align-items: center;
         gap: 10%;
         margin: 0 10px;
-        width: 500px;
+        width: 100%;
+        @include m.tab {
+            display: none;
+        }
         li{
             font-size: 14px;
             font-weight: bold;
+        }
+    }
+    &__hum{
+        display: none;
+        font-size: 28px;
+        color: var.$theme-color;
+        @include m.tab {
+            display: block;
+        }
+        &-menu{
+            position: fixed;
+            width: 200px;
+            height: calc(100vh + 80px);
+            padding: 10px;
+            font-size: 16px;
+            background-color: rgba(253, 249, 249, .95);
+            left: -200px;
+            top: 0;
+            transition: left .3s;
+            z-index: 2;
+            &.openhum{
+                left: 0;
+            }
+            li{
+                border-bottom: 1px solid var.$theme-color;
+                margin: 20px 0 20px 10px;
+                padding: 0 0 10px 10px;
+            }
         }
     }
 }

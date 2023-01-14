@@ -1,5 +1,5 @@
 @extends('layouts.l-app')
-@section('title', 'detail')
+@section('title', 'travel - detail')
 @section('main')
     <div class="detail__post">
         @component('components.post')

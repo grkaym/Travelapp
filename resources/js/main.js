@@ -185,4 +185,23 @@ $(function()
             }
         });
     }
+
+    //+------------------------------+
+    //| header ハンバーガー
+    //+------------------------------+
+    var hum = $('#js-hum');
+    var menu = $('#js-menu');
+    var h = $('.hum');
+    var x = $('.x-mark');
+
+    hum.on('click', function() {
+        menu.toggleClass('openhum');
+        h.removeClass('invisible');
+        x.removeClass('invisible');
+        if(menu.hasClass('openhum')) {
+            h.addClass('invisible');
+        } else{
+            x.addClass('invisible');
+        }
+    });
 });

@@ -1,5 +1,5 @@
 @use "../../Foundation/variables" as var;
-
+@use "../../Foundation/media" as m;
 .place{
     background-color: #fff;
     width: 100%;
@@ -42,8 +42,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        @include m.tab {
+            align-items: flex-end;
+        }
     }
-
+    &__image{
+        @include m.tab {
+            flex-direction: column;
+            gap: 5px;
+        }
+    }
 
 }
 

@@ -1,5 +1,5 @@
 @extends('layouts.l-app')
-@section('title', 'add-spot')
+@section('title', 'travel - add spot')
 @section('main')
 <h2>スポットを追加する</h2>
 <form action="/edit/spot/add/{{$post_id}}" method="post" class="forms">

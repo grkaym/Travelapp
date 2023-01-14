@@ -1,5 +1,5 @@
 @extends('layouts.l-app')
-@section('title', 'other - page')
+@section('title', "travel - other's mypage")
 @section('main')
     <h2 class="my__header">{{$user_name}}さんのマイページ</h2>
     <ul class="tab" id="tab">
