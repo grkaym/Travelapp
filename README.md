@@ -73,7 +73,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 管理ユーザーはさらにユーザーリストでユーザーの削除、復元ができます。
 
 ## 使い方
-- テストアカウント
+テストアカウント
     - 一般ユーザー：mail → user@example.com　password → password
     - 管理ユーザー：mail → admin@example.com　password → password
 
@@ -99,7 +99,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 #### 検索バーからキーワード検索する方法
 ヘッダー右側の検索バーからキーワード検索することができます。
 
-*※スペースなどで区切った複数のキーワード検索には対応していません。*
+**※スペースなどで区切った複数のキーワード検索には対応していません。**
 
 検索対象は以下です。
 
@@ -120,7 +120,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ユーザーは投稿に対して「いいね」することができます。
 
 マイページやタイムラインから投稿タイトルをクリックして詳細画面に移動し、ハートマークをクリックすることでいいねできます。
-
 いいねした投稿はマイページ → いいねした投稿から閲覧することができます。
 
 ## 環境
@@ -130,9 +129,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - XAMMP
 
 ## データベース
-- データベース名: travelapp
-- データベースを作成後、プロジェクト配下にあるtravelapp.sqlをインポートしてください。
+データベース名: travelapp
 
-ユーザー、投稿にダミーを登録しています。
+データベースを作成後、プロジェクト配下にあるtravelapp.sqlをインポートしてください。
 
-内容が滅茶苦茶ですが、意味はありません。
+ユーザー、投稿にダミーを登録しています。内容が滅茶苦茶ですが、意味はありません。
