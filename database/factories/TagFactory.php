@@ -15,7 +15,7 @@ class TagFactory extends Factory
     {
         return [
             'post_id'   => $this->faker->numberBetween(1, 100),
-            'name'      => $this->faker->city(),
+            'name'      => $this->faker->country(),
         ];
     }
 }

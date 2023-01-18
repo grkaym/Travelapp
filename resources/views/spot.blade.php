@@ -2,7 +2,7 @@
 @section('title', 'スポット追加 / travel')
 @section('main')
 <h2>スポットを追加する</h2>
-
+<p><span class="color-red">*</span>は入力必須です。</p>
 <form action="/edit/spot/add/{{$post_id}}" method="post" class="forms">
     @csrf
     <input type="hidden" name="post_id" value="{{$post_id}}">

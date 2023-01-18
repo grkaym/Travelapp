@@ -44,8 +44,8 @@ Route::get('/edit/{id?}', [App\Http\Controllers\CreateController::class, 'edit']
 Route::post('/edit/{id?}', [App\Http\Controllers\CreateController::class, 'create']);
 Route::post('/edit/delete/{post_id}', [App\Http\Controllers\CreateController::class, 'postDelete']);
 Route::post('/edit/add_tag/{post_id}', [App\Http\Controllers\CreateController::class, 'addTag']);
-Route::get('/edit/add_day/{post_id}', [App\Http\Controllers\CreateController::class, 'addDay'])->middleware(EditRejectMiddleware::class);
-Route::get('/edit/remove_day/{post_id}', [App\Http\Controllers\CreateController::class, 'removeDay'])->middleware(EditRejectMiddleware::class);
+Route::get('/edit/add_day/{post_id}', [App\Http\Controllers\CreateController::class, 'addDay']);
+Route::get('/edit/remove_day/{post_id}', [App\Http\Controllers\CreateController::class, 'removeDay']);
 Route::get('/edit/spot/{id}', [App\Http\Controllers\CreateController::class, 'spot'])->middleware(EditRejectMiddleware::class);
 Route::post('/edit/spot/{id}', [App\Http\Controllers\CreateController::class, 'spot']);
 Route::post('/edit/spot/add/{id}', [App\Http\Controllers\CreateController::class, 'add']);

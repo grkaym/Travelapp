@@ -1,7 +1,7 @@
 @extends('layouts.l-app')
 @section('title', '投稿作成 / travel')
 @section('main')
-    <h2>新しく投稿する</h2>
+    <h2>新しく旅程を作成する</h2>
     <p><span class="color-red">*</span>は入力必須です。</p>
     <div class="create">
         <form action="/edit" method="post" class="forms">

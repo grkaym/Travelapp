@@ -18,7 +18,7 @@ class PlaceFactory extends Factory
             'name'          => $this->faker->city(),
             'address'       => $this->faker->address(),
             'description'   => $this->faker->realText(200),
-            'day'           => $this->faker->numberBetween(1, 5),
+            'day'           => $this->faker->numberBetween(1, 2),
         ];
     }
 }

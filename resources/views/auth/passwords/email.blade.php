@@ -33,7 +33,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="button">
+                                <button type="submit" class="button button-login">
                                     {{ __('translation.Send Password Reset Link') }}
                                 </button>
                             </div>

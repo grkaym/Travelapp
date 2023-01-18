@@ -14,6 +14,13 @@
         <li>いいねした投稿</li>
     </ul>
     <div class="tab__wrapper my__post">
+        @if ($post_count == 0)
+            <div class="nopost">
+                <p>まだ投稿がありません。</p>
+                <br>
+                <p>「投稿する」から新しい旅程を作成してみましょう。</p>
+            </div>
+        @endif
         @foreach ($posts as $post)
         <div class="post__container">
             @component('components.post')
@@ -71,6 +78,13 @@
         @endforeach
     </div>
     <div class="tab__wrapper my__liked invisible">
+        @if ($like_count == 0)
+        <div class="nopost">
+            <p>まだいいねした投稿がありません。</p>
+            <br>
+            <p>「投稿を見る」からユーザーの旅程を見てみましょう。</p>
+        </div>
+        @endif
         @foreach ($posts_liked as $post)
         <div class="post__container">
             @component('components.post')
