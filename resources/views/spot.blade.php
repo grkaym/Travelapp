@@ -39,6 +39,6 @@
             <td class="description-count counter">0/500</td>
         </tr>
     </table>
-    <div class="create--submit"><input type="submit" value="スポットを追加する" class="button button__add-spot"></div>
+    <div class="create--submit"><input type="submit" value="追加" class="button button__add-spot"></div>
 </form>
 @endsection
