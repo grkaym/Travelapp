@@ -80,7 +80,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ### 投稿作成について
 投稿を作成するにはまず旅程のタイトルを登録し、その中に場所の情報を追加していきます。
 
-タイトル横に鍵マークがついている間は非公開となり、ほかユーザーに見られることはありません。
+タイトル横に鍵マークがついている間は非公開となり、他ユーザーに見られることはありません。
 
 公開までの流れは以下の通りです。
 
@@ -104,7 +104,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 検索対象は以下です。
 
 1. 投稿タイトル
-2. 投稿説明文
+2. 投稿紹介文
 3. 投稿に含まれるスポット名
 4. 投稿に含まれるスポット紹介文
 5. タグ名
@@ -129,8 +129,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - XAMMP
 
 ## データベース
-データベース名: travelapp
-
 データベースを作成後、プロジェクト配下にあるtravelapp.sqlをインポートしてください。
 
 ユーザー、投稿にダミーを登録しています。内容が滅茶苦茶ですが、意味はありません。
