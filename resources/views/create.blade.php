@@ -1,7 +1,8 @@
 @extends('layouts.l-app')
-@section('title', 'travel - create')
+@section('title', '投稿作成 / travel')
 @section('main')
     <h2>新しく投稿する</h2>
+    <p>新しく投稿できます。</p>
     <div class="create">
         <form action="/edit" method="post" class="forms">
             <input type="hidden" name="user_id" value="{{$user_id}}">

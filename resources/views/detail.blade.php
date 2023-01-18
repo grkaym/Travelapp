@@ -1,5 +1,5 @@
 @extends('layouts.l-app')
-@section('title', 'travel - detail')
+@section('title', '投稿詳細 / travel')
 @section('main')
     <div class="detail__post">
         @component('components.post')
@@ -8,6 +8,9 @@
             @endslot
             @slot('post_title')
                 {{$post->name}}
+                @if ($post->open_flag == 0)
+                    <i class="fa-solid fa-lock"></i>
+                @endif
             @endslot
             @slot('user_id')
                 {{$post->user_id}}

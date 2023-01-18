@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\ListMiddleware;
+use App\Http\Middleware\PostRejectMiddleware;
 use App\Http\Middleware\RejectMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -56,16 +58,16 @@ Route::post('/update_spot', [App\Http\Controllers\CreateController::class, 'upda
 Route::get('/complete', [App\Http\Controllers\CreateController::class, 'complete']);
 
 // post detail
-Route::get('/detail/{id?}', [App\Http\Controllers\DetailController::class, 'index']);
+Route::get('/detail/{id?}', [App\Http\Controllers\DetailController::class, 'index'])->middleware(PostRejectMiddleware::class);
 
 // search
 Route::get('/search/{keyword?}', [App\Http\Controllers\SearchController::class, 'index']);
 Route::get('/search/tag/{keyword?}', [App\Http\Controllers\SearchController::class, 'searchByTag']);
 
 // userlist
-Route::get('/list', [App\Http\Controllers\ListController::class, 'index']);
-Route::get('/delete_user', [App\Http\Controllers\ListController::class, 'delete']);
-Route::get('/restore_user', [App\Http\Controllers\ListController::class, 'restore']);
+Route::get('/list', [App\Http\Controllers\ListController::class, 'index'])->middleware(ListMiddleware::class);
+Route::get('/delete_user', [App\Http\Controllers\ListController::class, 'delete'])->middleware(ListMiddleware::class);
+Route::get('/restore_user', [App\Http\Controllers\ListController::class, 'restore'])->middleware(ListMiddleware::class);
 
 // ajax
 Route::post('/ajax/addContent', [App\Http\Controllers\TimelineController::class, 'ajaxAddContent']);

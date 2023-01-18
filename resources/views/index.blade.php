@@ -1,5 +1,5 @@
 @extends('layouts.l-app')
-@section('title', 'travel - mypage')
+@section('title', 'マイページ / travel')
 @section('main')
     @if ($role == 0)
         <h2 class="my__header">{{$user_name}}さん(管理者)のマイページ</h2>

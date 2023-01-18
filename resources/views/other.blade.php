@@ -1,5 +1,7 @@
 @extends('layouts.l-app')
-@section('title', "travel - other's mypage")
+@section('title')
+    {{$user_name}}さんのマイページ / travel
+@endsection
 @section('main')
     <h2 class="my__header">{{$user_name}}さんのマイページ</h2>
     <ul class="tab" id="tab">
@@ -8,6 +10,7 @@
     </ul>
     <div class="tab__wrapper my__post">
         @foreach ($posts as $post)
+        @if ($post->open_flag == 1){{--公開済みの投稿だけ表示--}}
         <div class="post__container">
             @component('components.post')
                 @slot('post_id')
@@ -48,11 +51,13 @@
                 @slot('post_edit')
                 @endslot
             @endcomponent
-        </div>
+        </div>    
+        @endif
         @endforeach
     </div>
     <div class="tab__wrapper my__liked invisible">
         @foreach ($posts_liked as $post)
+        @if ($post->open_flag == 1){{--公開済みの投稿だけ表示--}}
         <div class="post__container">
             @component('components.post')
                 @slot('post_id')
@@ -94,6 +99,7 @@
                 @endslot
             @endcomponent
         </div>
+        @endif
         @endforeach
     </div>
 @endsection

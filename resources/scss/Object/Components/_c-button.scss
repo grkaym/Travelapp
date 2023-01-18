@@ -20,6 +20,9 @@
         color: var.$theme-color;
         box-shadow: none;
     }
+    &-login{
+        width: 80px;
+    }
 
     &.day__button--selected:hover{
         color: #fff;
@@ -97,4 +100,13 @@
 .create--button{
     display: inline-block;
     width: 60px;
+}
+
+// 画像選択ボタン
+.image-button{
+    color: #888;
+    font-size: 16px;
+    &:hover{
+        color: var.$theme-color;
+    }
 }

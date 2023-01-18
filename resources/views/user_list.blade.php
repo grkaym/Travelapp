@@ -1,5 +1,5 @@
 @extends('layouts.l-app')
-@section('title', 'travel - userlist')
+@section('title', 'ユーザーリスト / travel')
 @section('main')
     <h2>ユーザーリスト</h2>
     <table class="users">

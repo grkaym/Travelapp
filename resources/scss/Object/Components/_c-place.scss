@@ -55,6 +55,14 @@
 
 }
 
+.file-name{
+    color: #888;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .slick-dots li.slick-active button:before{
     color: var.$theme-color;
 }

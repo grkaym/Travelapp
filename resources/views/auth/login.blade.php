@@ -56,7 +56,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="button mt-2 mb-3">
+                                <button type="submit" class="button mt-2 mb-3 button-login">
                                     {{ __('translation.Login') }}
                                 </button>
 

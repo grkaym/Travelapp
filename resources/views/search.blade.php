@@ -1,5 +1,7 @@
 @extends('layouts.l-app')
-@section('title', 'travel - search')
+@section('title')
+    "{{$keyword}}"の検索結果 / travel
+@endsection
 @section('main')
     <h2>"{{$keyword}}" {{$count}}件の検索結果</h2>
     {{-- 取得した投稿をすべて表示する。 --}}
