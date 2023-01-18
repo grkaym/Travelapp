@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'reject' => \App\Http\Middleware\RejectMiddleware::class,
         'list'  => \App\Http\Middleware\ListMiddleware::class,
         'post_reject'   => \App\Http\Middleware\PostRejectMiddleware::class,
+        'edit_reject'   => \App\Http\Middleware\EditRejectMiddleware::class,
     ];
 }

@@ -2,6 +2,7 @@
 @section('title', 'スポット更新 / travel')
 @section('main')
 <h2>スポットを更新する</h2>
+<p><span class="color-red">*</span>は入力必須です。</p>
 <form action="/update_spot" method="post" class="forms">
     @csrf
     <input type="hidden" name="post_id" value="{{old('post_id', $post_id)}}">
@@ -9,7 +10,7 @@
     {{-- <input type="hidden" name="day" value="{{old('day', $day)}}"> --}}
     <table class="forms__table">
         <tr>
-            <td>名前</td>
+            <td><span class="color-red">*</span>名前</td>
             <td>
                 @error('name')
                     <p class="error">{{$message}}</p>
@@ -19,7 +20,7 @@
             <td class="title-count counter">0/30</td>
         </tr>
         <tr>
-            <td>住所</td>
+            <td><span class="color-red">*</span>住所</td>
             <td>
                 @error('address')
                     <p class="error">{{$message}}</p>

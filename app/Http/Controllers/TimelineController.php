@@ -18,7 +18,7 @@ class TimelineController extends Controller
     public function index()
     {
         // 最初に表示する投稿（２０件）
-        $posts  = Post::where('open_flag', 1)->orderBy('id', 'desc')->limit(20)->get();
+        $posts  = Post::where('open_flag', 1)->orderBy('updated_at', 'desc')->limit(20)->get();
         $tags   = Tag::all();
         $users  = User::all();
 
@@ -32,7 +32,7 @@ class TimelineController extends Controller
     public function ajaxAddContent(Request $request)
     {
         $disp_posts = $request->count;
-        $ajax_posts = Post::where('open_flag', 1)->orderBy('id', 'desc')->offset($disp_posts)->limit(20)->get();
+        $ajax_posts = Post::where('open_flag', 1)->orderBy('updated_at', 'desc')->offset($disp_posts)->limit(20)->get();
         $tags       = Tag::all();
         $users      = User::all();
 

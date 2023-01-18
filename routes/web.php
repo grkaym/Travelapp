@@ -2,6 +2,7 @@
 
 use App\Http\Middleware\ListMiddleware;
 use App\Http\Middleware\PostRejectMiddleware;
+use App\Http\Middleware\EditRejectMiddleware;
 use App\Http\Middleware\RejectMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -39,18 +40,18 @@ Route::get('/timeline', [App\Http\Controllers\TimelineController::class, 'index'
 Route::get('/create', [App\Http\Controllers\CreateController::class, 'index']);
 
 // edit post
-Route::get('/edit/{id?}', [App\Http\Controllers\CreateController::class, 'edit']);
+Route::get('/edit/{id?}', [App\Http\Controllers\CreateController::class, 'edit'])->middleware(EditRejectMiddleware::class);
 Route::post('/edit/{id?}', [App\Http\Controllers\CreateController::class, 'create']);
 Route::post('/edit/delete/{post_id}', [App\Http\Controllers\CreateController::class, 'postDelete']);
 Route::post('/edit/add_tag/{post_id}', [App\Http\Controllers\CreateController::class, 'addTag']);
-Route::get('/edit/add_day/{post_id}', [App\Http\Controllers\CreateController::class, 'addDay']);
-Route::get('/edit/remove_day/{post_id}', [App\Http\Controllers\CreateController::class, 'removeDay']);
-Route::get('/edit/spot/{id}', [App\Http\Controllers\CreateController::class, 'spot']);
+Route::get('/edit/add_day/{post_id}', [App\Http\Controllers\CreateController::class, 'addDay'])->middleware(EditRejectMiddleware::class);
+Route::get('/edit/remove_day/{post_id}', [App\Http\Controllers\CreateController::class, 'removeDay'])->middleware(EditRejectMiddleware::class);
+Route::get('/edit/spot/{id}', [App\Http\Controllers\CreateController::class, 'spot'])->middleware(EditRejectMiddleware::class);
 Route::post('/edit/spot/{id}', [App\Http\Controllers\CreateController::class, 'spot']);
 Route::post('/edit/spot/add/{id}', [App\Http\Controllers\CreateController::class, 'add']);
 Route::post('/edit/spot/delete/{id}', [App\Http\Controllers\CreateController::class, 'spotDelete']);
 Route::post('/edit/spot/add_image/{id}', [App\Http\Controllers\CreateController::class, 'addImage']);
-Route::get('/rename', [App\Http\Controllers\CreateController::class, 'rename']);
+Route::get('/rename', [App\Http\Controllers\CreateController::class, 'rename'])->middleware(EditRejectMiddleware::class);
 Route::post('/rename', [App\Http\Controllers\CreateController::class, 'rename']);
 Route::post('/update_spot', [App\Http\Controllers\CreateController::class, 'updateSpot']);
 

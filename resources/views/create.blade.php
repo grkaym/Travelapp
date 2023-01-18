@@ -2,18 +2,19 @@
 @section('title', '投稿作成 / travel')
 @section('main')
     <h2>新しく投稿する</h2>
-    <p>新しく投稿できます。</p>
+    <p><span class="color-red">*</span>は入力必須です。</p>
     <div class="create">
         <form action="/edit" method="post" class="forms">
             <input type="hidden" name="user_id" value="{{$user_id}}">
             @csrf
             <table class="forms__table">
                 <tr>
-                    <td>タイトル</td>
+                    <td><span class="color-red">*</span>タイトル</td>
                     <td>
                         @error('name')
                             <p class="error">{{$message}}</p>
                         @enderror
+                        <p>この投稿のタイトルを決めましょう。<br>マイページや投稿一覧などに表示されます。</p>
                         <input type="text" name="name" value="{{old('name')}}" class="forms__table--title">
                     </td>
                     <td class="title-count counter">0/30</td>
