@@ -73,7 +73,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 管理ユーザーはさらにユーザーリストでユーザーの削除、復元ができます。
 
 ## 使い方
-テストアカウント
+- テストアカウント
     - 一般ユーザー：mail → user@example.com　password → password
     - 管理ユーザー：mail → admin@example.com　password → password
 
