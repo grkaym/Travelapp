@@ -11,6 +11,7 @@
     background-color: var.$header-color;
     position: fixed;
     top: 0;
+    z-index: 10;
 
     &__container{
         flex: 1;

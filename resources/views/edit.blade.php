@@ -89,7 +89,7 @@
                             <i class="fa-regular fa-image"></i>
                             <input type="file" name="image" value="{{old('image')}}" accept="image/jpg, image/jpeg, image/png" style="display: none;" class="place__button--select" form="{{$place->id}}">
                         </label>
-                        <p class="file-name">jpg, png形式の画像のみ選択できます。</p>
+                        <p class="file-name">jpg, png形式の画像を選択できます。</p>
                         <input type="submit" value="追加" class="button invisible place__button--send" form="{{$place->id}}">
                     </div>
                 </form>

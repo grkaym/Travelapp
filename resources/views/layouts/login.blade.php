@@ -26,13 +26,15 @@
     <div id="app" class="wrapper">
         @include('components.login_header')
 
-        <div class="container">
-            <div class="row">
-                <div class="col-11 col-lg-10 jumbotron mx-auto mt-4">
-                    @yield('content')
+        <main class="main auth">
+            <div class="container">
+                <div class="row">
+                    <div class="col-11 col-lg-10 jumbotron mx-auto mt-4">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
 
         @include('components.footer')
     </div>

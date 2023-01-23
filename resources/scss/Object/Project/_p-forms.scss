@@ -11,17 +11,23 @@ $width: 500px;
                 flex-direction: column;
             }
         }
-        input{
+        input,
+        textarea{
             &:focus-visible{
                 outline-color: var.$theme-color;
             }
+            background-color: var.$bg-color;
+            border: 1px solid #888;
+            border-radius: 3px;
         }
         td:first-child{
+            // 項目
             background-color: var.$theme-color;
             width: 150px;
             vertical-align: top;
             padding-left: 5px;
             color: #fff;
+            border-radius: 3px;
             @include m.sp-form {
                 width: 100%;
                 padding: 5px;
@@ -35,9 +41,6 @@ $width: 500px;
             width: 100%;
             font-size: 16px;
             resize: none;
-            &:focus-visible{
-                outline-color: var.$theme-color;
-            }
         }
         &--tag{
             width: 100% / 3;
@@ -64,4 +67,19 @@ $width: 500px;
     vertical-align: bottom;
     font-size: 13px;
     color: #888;
+}
+
+.auth{
+    input{
+        &:focus-visible{
+            outline-color: var.$theme-color;
+        }
+        &:focus{
+            box-shadow: none;
+            border: 1px solid var.$theme-color;
+        }
+        background-color: var.$bg-color;
+        border: 1px solid #888;
+        border-radius: 3px;
+    }
 }

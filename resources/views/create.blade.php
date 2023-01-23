@@ -35,7 +35,7 @@
                         @if ($errors->has('tag') || $errors->has('tag2') || $errors->has('tag3') || $errors->has('tag4') || $errors->has('tag5'))
                             <p class="error">タグキーワードは8文字以内で入力してください。</p>
                         @endif
-                        <p>	関連のあるタグキーワードを最大5つまで登録することができます。<br>タグを登録しておくと、他の人から見つけてもらいやすくなります。</p>
+                        <p>	関連のあるタグキーワードを最大5つまで登録することができます。<br>タグを登録しておくと、他の人から見つけてもらいやすくなります。（8文字以内）</p>
                         <input type="text" name="tag" class="forms__table--tag" value="{{old('tag')}}">
                         <input type="text" name="tag2" class="forms__table--tag" value="{{old('tag2')}}">
                         <input type="text" name="tag3" class="forms__table--tag" value="{{old('tag3')}}">
