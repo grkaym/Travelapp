@@ -48,7 +48,7 @@
         @for ($i = 1; $i <= (int) $post->day ; $i++)
         <div class="day__button js_day">
             <input type="hidden" value="{{$i}}" class="today">
-            {{$i}}日目
+            <input type="button" class="day__button--input" name="day_button" value="{{$i}}日目">
         </div>
         @endfor
         <a href="/edit/add_day/{{$post->id}}"><button class="day__button day__button--add"><i class="fa-solid fa-plus"></i></button></a>

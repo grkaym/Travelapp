@@ -9,6 +9,8 @@
     height: 80px;
     border-bottom: solid 2px var.$theme-color;
     background-color: var.$header-color;
+    position: fixed;
+    top: 0;
 
     &__container{
         flex: 1;
