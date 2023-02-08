@@ -18,7 +18,7 @@
             <div class="nopost">
                 <p>まだ投稿がありません。</p>
                 <br>
-                <p>「投稿する」から新しい旅程を作成してみましょう。</p>
+                <p>「作成する」から新しい旅程を作ってみましょう。</p>
             </div>
         @endif
         @foreach ($posts as $post)

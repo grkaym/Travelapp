@@ -6,7 +6,7 @@ $(function()
     slider.slick({
         'arrows' : false,
         'dots' : true,
-        'autoplay' : true,
+        'autoplay' : false,
         'infinite' : true,
     });
 

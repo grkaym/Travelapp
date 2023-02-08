@@ -138,7 +138,7 @@ class CreateController extends Controller
 
         $place = new Place;
 
-        $place->where('day', $del_day)->delete();
+        $place->where('post_id', $request->post_id)->where('day', $del_day)->delete();
 
         return redirect()->action([CreateController::class, 'edit'], ['id' => $request->post_id]);
     }

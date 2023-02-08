@@ -1,5 +1,5 @@
 @extends('layouts.l-app')
-@section('title', '投稿作成 / travel')
+@section('title', '旅程作成 / travel')
 @section('main')
     <h2>新しく旅程を作成する</h2>
     <p><span class="color-red">*</span>は入力必須です。</p>
@@ -14,7 +14,7 @@
                         @error('name')
                             <p class="error">{{$message}}</p>
                         @enderror
-                        <p>この投稿のタイトルを決めましょう。<br>マイページや投稿一覧などに表示されます。</p>
+                        <p>この投稿のタイトルを決めましょう。マイページや投稿一覧などに表示されます。</p>
                         <input type="text" name="name" value="{{old('name')}}" class="forms__table--title">
                     </td>
                     <td class="title-count counter">0/30</td>

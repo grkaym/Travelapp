@@ -9,6 +9,11 @@
         <li>いいねした投稿</li>
     </ul>
     <div class="tab__wrapper my__post">
+        @if ($post_count == 0)
+        <div class="nopost">
+            <p>投稿がありません。</p>
+        </div>
+    @endif
         @foreach ($posts as $post)
         @if ($post->open_flag == 1){{--公開済みの投稿だけ表示--}}
         <div class="post__container">
@@ -56,6 +61,11 @@
         @endforeach
     </div>
     <div class="tab__wrapper my__liked invisible">
+        @if ($like_count == 0)
+        <div class="nopost">
+            <p>いいねした投稿がありません。</p>
+        </div>
+        @endif
         @foreach ($posts_liked as $post)
         @if ($post->open_flag == 1){{--公開済みの投稿だけ表示--}}
         <div class="post__container">

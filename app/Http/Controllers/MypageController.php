@@ -69,12 +69,17 @@ class MypageController extends Controller
             $q->where('user_id', $user_id);
         })->orderBy('id', 'desc')->get();
 
+        $post_count = $post->where('user_id', $user_id)->get()->count();
+        $like_count = $posts_liked->count();
+
         return view('other', [
             'posts' => $posts,
             'tags'  => $tags,
             'users' => $users,
             'user_name' => $user_name,
             'posts_liked' => $posts_liked,
+            'post_count' => $post_count,
+            'like_count' => $like_count,
         ]);
     }
 

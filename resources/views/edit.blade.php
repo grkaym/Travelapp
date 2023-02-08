@@ -127,6 +127,7 @@
         <button type="submit" class="button button--add-spot button--wide">スポットを追加</button>
     </form>
     <form action="/complete" id="complete_{{$post->id}}" method="get">
+        @csrf
         <input type="hidden" name="post_id" value="{{$post->id}}" form="complete_{{$post->id}}">
         @if ($post->open_flag == 0)
             <button type="submit" class="button button--done button--wide" form="complete_{{$post->id}}">公開する</button>
