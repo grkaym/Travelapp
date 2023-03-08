@@ -147,9 +147,7 @@ class CreateController extends Controller
     {
         $post_id = $request->id;
         $day = $request->selectedDay;
-        // $images = Image::where('place_id', $post_id)->get();
         return view('spot', [
-            // 'images' => $images,
             'post_id' => $post_id,
             'day' => $day,
         ]);
@@ -208,7 +206,6 @@ class CreateController extends Controller
             'description' => $request->description,
             'place_id' => $request->place_id,
             'post_id' => $request->post_id
-
         ]);
     }
 

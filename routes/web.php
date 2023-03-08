@@ -22,13 +22,6 @@ use Illuminate\Support\Str;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/', function () {
-//     return view('app/mypage');
-// });
-
 // mypage
 Route::get('/', [App\Http\Controllers\MypageController::class, 'index'])->middleware(RejectMiddleware::class);
 Route::get('/other/{id}', [App\Http\Controllers\MypageController::class, 'other']);

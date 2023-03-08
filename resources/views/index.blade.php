@@ -27,6 +27,7 @@
                 @slot('post_id')
                     {{$post->id}}
                 @endslot
+                
                 @slot('post_title')
                     <a href="/detail/{{$post->id}}">{{$post->name}}</a>
                     @if ($post->open_flag == 0)
@@ -39,12 +40,12 @@
                 @endslot
         
                 @slot('post_user')
-                @foreach ($users as $user)
-                    @if ($user->id === $post->user_id)
-                        {{$user->name}}
-                        @break
-                    @endif
-                @endforeach
+                    @foreach ($users as $user)
+                        @if ($user->id === $post->user_id)
+                            {{$user->name}}
+                            @break
+                        @endif
+                    @endforeach
                 @endslot
         
                 @slot('post_tag')

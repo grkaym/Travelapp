@@ -10,10 +10,10 @@
     </ul>
     <div class="tab__wrapper my__post">
         @if ($post_count == 0)
-        <div class="nopost">
-            <p>投稿がありません。</p>
-        </div>
-    @endif
+            <div class="nopost">
+                <p>投稿がありません。</p>
+            </div>
+         @endif
         @foreach ($posts as $post)
         @if ($post->open_flag == 1){{--公開済みの投稿だけ表示--}}
         <div class="post__container">
@@ -54,6 +54,7 @@
                 @endslot
         
                 @slot('post_edit')
+                
                 @endslot
             @endcomponent
         </div>    

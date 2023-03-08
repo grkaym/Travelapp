@@ -18,7 +18,6 @@ class MypageController extends Controller
     
     public function index()
     {
-        // $posts = Post::all();
         $auth       = Auth::user();
         $user_name  = $auth->name;
         $role       = $auth->role;

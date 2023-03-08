@@ -15,9 +15,11 @@
                     <i class="fa-solid fa-lock"></i>
                 @endif
             @endslot
+            
             @slot('user_id')
                 {{$post->user_id}}
             @endslot
+
             @slot('post_user')
                 {{$post_user}}
             @endslot

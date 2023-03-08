@@ -43,7 +43,7 @@ class Post extends Model
     /**
      * 投稿名、投稿desc、タグ名、場所名、場所説明から
      * キーワードを含む投稿を返す
-     */
+    */
     public static function searchAll($keyword)
     {
         $post = Post::where('name', 'like', '%'.$keyword.'%')

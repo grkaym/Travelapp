@@ -6,29 +6,36 @@
             @slot('post_id')
                 {{$post->id}}
             @endslot
+            
             @slot('post_title')
                 {{$post->name}}
                 @if ($post->open_flag == 0)
                     <i class="fa-solid fa-lock"></i>
                 @endif
             @endslot
+
             @slot('user_id')
                 {{$post->user_id}}
             @endslot
+
             @slot('user_id')
                 {{$post->user_id}}
             @endslot
+
             @slot('post_user')
                 {{$post_user}}
             @endslot
+
             @slot('post_desc')
                 {{$post->description}}
             @endslot
+
             @slot('post_tag')
                 @foreach ($tags as $tag)
                     {{$tag->name}}
                 @endforeach
             @endslot
+            
             @slot('post_edit')
                 
             @endslot
@@ -54,6 +61,7 @@
     @foreach ($places as $place)
         @component('components.place')
             @slot('place_day', $place->day)
+
             @slot('images')
                 @foreach ($images as $image)
                     @if ($image->place_id === $place->id)
@@ -61,21 +69,27 @@
                     @endif
                 @endforeach
             @endslot
+
             @slot('place_id')
                 {{$place->id}}
             @endslot
+
             @slot('place_name')
                 {{$place->name}}
             @endslot
+
             @slot('place_address')
                 {{$place->address}}
             @endslot
+
             @slot('place_description')
                 {{$place->description}}
             @endslot
+
             @slot('post_id')
                 {{$post->id}}
             @endslot
+
             @slot('place_image')
                 
             @endslot

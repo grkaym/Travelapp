@@ -33,22 +33,4 @@ class LikeController extends Controller
             $like->save();
         }
     }
-
-    // /**
-    //  * Likeされているかどうかを判定する
-    //  *
-    //  * @return boolean
-    //  * true->いいねしてる
-    //  * false->いいねしてない
-    //  */
-    // public static function isLike($user_id, $post_id)
-    // {
-    //     $like = new Like;
-
-    //     $ret = $like->where('user_id', $user_id)
-    //     ->where('post_id', $post_id)
-    //     ->exists();
-
-    //     return $ret;
-    // }
 }
