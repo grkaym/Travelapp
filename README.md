@@ -1,7 +1,7 @@
 # travel
 
 ## サイトURL
-http://kiki.capoo.jp/
+https://kiki.capoo.jp/
 
 ## 概要
 旅の記録やアイデアを共有できるアプリを作成しました。
